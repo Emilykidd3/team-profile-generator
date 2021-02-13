@@ -6,8 +6,14 @@ test('creates an Intern object', () => {
     expect(intern.school).toEqual(expect.any(String));
 });
 
+test('gets school', () => {
+    const intern = new Intern('school');
+
+    expect(intern.getSchool()).toEqual(expect.any(String));
+});
+
 test('creates role', () => {
     const intern = new Intern('school');
 
-    expect(intern.getRole()).toBe(Intern);
+    expect(intern.getRole()).toBe("Intern");
 });

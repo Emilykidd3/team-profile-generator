@@ -4,7 +4,7 @@ const Employee = require('../lib/Employee.js');
 test('can instantiate a new instance', () => {
     const employee = new Employee();
 
-    expect(typeOf(employee)).toBe(expect.any(Object));
+    expect(typeof employee).toBe("object");
 });
 
 test('creates an employee object', () => {
