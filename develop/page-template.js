@@ -2,7 +2,7 @@ const { isTemplateElement } = require("@babel/types")
 
 const makeManagerCard = (manager) => {
     return `
-    <div class="card mb-3 mt-5" style="width: 300px; max-width: 18rem;">
+    <div class="card mb-3 mt-5 m-2" style="width: 300px; max-width: 18rem;">
         <div class="card-header text-white bg-primary">
             <h3>${manager.getName()}</h3>
             <h5>${manager.getRole()}</h5>
@@ -18,7 +18,7 @@ const makeManagerCard = (manager) => {
 
 const makeEngineerCard = (engineer) => {
     return `
-    <div class="card mb-3 mt-5" style="width: 300px; max-width: 18rem;">
+    <div class="card mb-3 mt-5 m-2" style="width: 300px; max-width: 18rem;">
         <div class="card-header text-white bg-primary">
             <h3>${engineer.getName()}</h3>
             <h5>${engineer.getRole()}</h5>
@@ -34,7 +34,7 @@ const makeEngineerCard = (engineer) => {
 
 const makeInternCard = (intern) => {
     return `
-    <div class="card mb-3 mt-5" style="width: 300px; max-width: 18rem;">
+    <div class="card mb-3 mt-5 m-2" style="width: 300px; max-width: 18rem;">
         <div class="card-header text-white bg-primary">
             <h3>${intern.getName()}</h3>
             <h5>${intern.getRole()}</h5>
@@ -69,21 +69,13 @@ const makeCards = (employeeArr) => {
         }
     })
 
-    cardsToAdd.push(managerArr.map(manager => {
-        return (makeManagerCard(manager));
-    }))
+    cardsToAdd.push(managerArr.map(manager => makeManagerCard(manager)));
 
-    cardsToAdd.push(engineerArr.map(engineer => {
-        return (makeEngineerCard(engineer));
-    }).join(""))
+    cardsToAdd.push(engineerArr.map(engineer => makeEngineerCard(engineer)).join(""));
 
-    cardsToAdd.push(internArr.map(intern => {
-        return (makeInternCard(intern));
-    }).join(""))
+    cardsToAdd.push(internArr.map(intern => makeInternCard(intern)).join(""));
     
-    console.log(cardsToAdd);
-    cardsToAdd.join("");
-    return cardsToAdd;
+    return cardsToAdd.join("");
 }
 
 const writePage = function(employeeArr) {
